@@ -50,9 +50,9 @@ const flowAser = addKeyword(['Certificados', 'cert']).addAnswer(
     [flowSecundario]
 )
 
-const flowGracias = addKeyword(['gracias', 'grac','Gracias'],{sensitive:true}).addAnswer(
+const flowGracias = addKeyword(['gracias', 'grac']).addAnswer(
     [
-        '🚀 A sus servicio ciudadano',
+        '🚀 A su servicio ciudadano',
         '\n*2* Para siguiente paso.',
     ],
     null,
