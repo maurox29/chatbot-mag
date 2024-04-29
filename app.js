@@ -4,12 +4,35 @@ const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const MockAdapter = require('@bot-whatsapp/database/mock')
 
-const flowSecundario = addKeyword(['2', 'siguiente']).addAnswer(['📄 Aquí tenemos el flujo secundario'])
+const flowSecundario = addKeyword(['2', 'siguiente']).addAnswer(
+    ['📄 Necesitas algo mas?']
+[flowGracias]
+)
 
-const flowDocs = addKeyword(['doc', 'documentacion', 'documentación']).addAnswer(
+const flowPass = addKeyword(['Pasaporte', 'pass', 'pasaporte']).addAnswer(
     [
-        '📄 Aquí encontras las documentación recuerda que puedes mejorarla',
-        'https://bot-whatsapp.netlify.app/',
+        '📄 Aquí encontras la informacion necesaria',
+        '¿Dirección de la oficina de pasaportes Magdalena?' ,
+        'Carrera 1ra calle 22 esquina, Antiguo Hospital San Juan de Dios.',
+
+        '¿Horario de atención de la oficina de pasaportes del Magdalena?',
+        'Para realizar trámite de pasaporte y reclamar pasaporte',
+        'De lunes a viernes (exceptos días festivos)',
+        'De 8:00 am – 11:50 am   y de 2:00 pm – 4:50 pm',
+
+        '¿Cómo puedo agendar mi cita con la oficina de pasaportes del Magdalena?',
+        'Es un proceso fácil y rápido.',
+	    'Debes dirigirte al portal web de la oficina',
+        'https://pasaportes.gobernaciondelmagdalena.gov.co/',
+        'En la parte superior encontraras el botón Agenda tu cita  Da clic.',
+        'Debes presionar el botón Agendar cita Ubicado en el punto 2.',
+ 	    'Se despliega un formulario, Dale Continuar al mensaje que aparece, el cual indica que tus datos deben ser 100% exactos al documento de identidad.',
+ 	    'Ingresa los datos solicitado y da clic en Enviar datos',
+ 	    'Da clic en Continuar al mensaje que aparece indicando el éxito de tu registro',
+ 	    'Clic en Agendar cita',
+	    'Aparece un botón de calendario, escoge tu fecha y hora para ser atendido',
+	    'Dale Continuar para obtener la confirmación de tu cita, el código.',
+
         '\n*2* Para siguiente paso.',
     ],
     null,
@@ -17,10 +40,9 @@ const flowDocs = addKeyword(['doc', 'documentacion', 'documentación']).addAnswe
     [flowSecundario]
 )
 
-const flowTuto = addKeyword(['tutorial', 'tuto']).addAnswer(
+const flowAser = addKeyword(['Certificados', 'cert']).addAnswer(
     [
-        '🙌 Aquí encontras un ejemplo rapido',
-        'https://bot-whatsapp.netlify.app/docs/example/',
+        '🙌 ¡Un asesor te orientara en unos minutos!',
         '\n*2* Para siguiente paso.',
     ],
     null,
@@ -28,12 +50,9 @@ const flowTuto = addKeyword(['tutorial', 'tuto']).addAnswer(
     [flowSecundario]
 )
 
-const flowGracias = addKeyword(['gracias', 'grac']).addAnswer(
+const flowGracias = addKeyword(['gracias', 'grac','Gracias'],{sensitive:true}).addAnswer(
     [
-        '🚀 Puedes aportar tu granito de arena a este proyecto',
-        '[*opencollective*] https://opencollective.com/bot-whatsapp',
-        '[*buymeacoffee*] https://www.buymeacoffee.com/leifermendez',
-        '[*patreon*] https://www.patreon.com/leifermendez',
+        '🚀 A sus servicio ciudadano',
         '\n*2* Para siguiente paso.',
     ],
     null,
@@ -41,25 +60,25 @@ const flowGracias = addKeyword(['gracias', 'grac']).addAnswer(
     [flowSecundario]
 )
 
-const flowDiscord = addKeyword(['discord']).addAnswer(
-    ['🤪 Únete al discord', 'https://link.codigoencasa.com/DISCORD', '\n*2* Para siguiente paso.'],
+const flowFree = addKeyword(['Preguntas frecuentes']).addAnswer(
+    ['Aqui encontraras todas las preguntas y respuestas frecuentes', 'https://www.gobernaciondelmagdalena.gov.co/preguntas-y-respuestas-frecuentes/', '\n*2* Para siguiente paso.'],
     null,
     null,
     [flowSecundario]
 )
 
-const flowPrincipal = addKeyword(['hola', 'ole', 'alo'])
-    .addAnswer('🙌 Hola bienvenido a este *Chatbot*')
+const flowPrincipal = addKeyword(['hola', 'ole', 'alo','buenas'],{sensitive:true})
+    .addAnswer('🙌 Hola bienvenido a Gobernacion del Magdalena Chatbot')
     .addAnswer(
         [
-            'te comparto los siguientes links de interes sobre el proyecto',
-            '👉 *doc* para ver la documentación',
-            '👉 *gracias*  para ver la lista de videos',
-            '👉 *discord* unirte al discord',
+            '¿En que puedo ayudarte?',
+            '👉 *Pasaporte* ',
+            '👉 *Certificados*',
+            '👉 *Preguntas frecuentes*',
         ],
         null,
         null,
-        [flowDocs, flowGracias, flowTuto, flowDiscord]
+        [flowPass, flowGracias, flowAser, flowFree]
     )
 
 const main = async () => {
