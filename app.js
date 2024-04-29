@@ -4,10 +4,7 @@ const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const MockAdapter = require('@bot-whatsapp/database/mock')
 
-const flowSecundario = addKeyword(['2', 'siguiente']).addAnswer(
-    ['📄 Necesitas algo mas?']
-[flowGracias]
-)
+const flowSecundario = addKeyword(['2', 'siguiente']).addAnswer(['📄 Aquí tenemos el flujo secundario'])
 
 const flowPass = addKeyword(['Pasaporte', 'pass', 'pasaporte']).addAnswer(
     [
@@ -52,7 +49,7 @@ const flowAser = addKeyword(['Certificados', 'cert']).addAnswer(
 
 const flowGracias = addKeyword(['gracias', 'grac']).addAnswer(
     [
-        '🚀 A su servicio ciudadano',
+        '🚀 Gracias a ti Ciudadano, un gusto ayudarte',
         '\n*2* Para siguiente paso.',
     ],
     null,
