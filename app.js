@@ -4,7 +4,7 @@ const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const MockAdapter = require('@bot-whatsapp/database/mock')
 
-const flowSecundario = addKeyword(['2', 'siguiente']).addAnswer(['📄 Aquí tenemos el flujo secundario'])
+const flowSecundario = addKeyword(['2', 'siguiente']).addAnswer(['📄 ¿Nececitas algo más?'])
 
 const flowPass = addKeyword(['Pasaporte', 'pass', 'pasaporte']).addAnswer(
     [
@@ -64,7 +64,7 @@ const flowFree = addKeyword(['Preguntas frecuentes']).addAnswer(
     [flowSecundario]
 )
 
-const flowPrincipal = addKeyword(['hola', 'ole', 'alo','buenas'],{sensitive:true})
+const flowPrincipal = addKeyword(['Hola', 'ole', 'alo','Buenas'],{sensitive:true})
     .addAnswer('🙌 Hola bienvenido a Gobernacion del Magdalena Chatbot')
     .addAnswer(
         [
